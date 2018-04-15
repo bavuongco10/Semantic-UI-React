@@ -43,6 +43,7 @@ export default class EventTarget {
     if (_.some(this._pools, name)) return
     const { [name]: handler } = this._handlers
 
+    if(!handler) return;
     this.target.removeEventListener(name, handler)
     delete this._handlers[name]
   }
